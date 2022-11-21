@@ -13,6 +13,8 @@ public class ScheduleApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ScheduleApplication.class, args);
+
+        printTime();
     }
 
 //    This option should be used when it’s mandatory that the previous execution is completed before running again.
@@ -32,6 +34,11 @@ public class ScheduleApplication {
 //    - The fixedRate property runs the scheduled task at every n millisecond. It doesn't check for any previous executions of the task.
 
     // initialDelay - Hoãn 5s r mới gọi fixedDelay -> 15s
+
+    public static void printTime() {
+        System.out.println("before initial delay (5s) - " + System.currentTimeMillis() / 1000);
+    }
+
     @Scheduled(fixedDelay = 10000, initialDelay = 5000)
     public void scheduleFixedRateWithInitialDelayTask() {
 
@@ -42,11 +49,11 @@ public class ScheduleApplication {
 
     // cron
     // executed at 10:15 AM on the 15th day of every month.
-    @Scheduled(cron = "0 15 10 15 * ?")
-    public void scheduleTaskUsingCronExpression() {
-
-        long now = System.currentTimeMillis() / 1000;
-        System.out.println(
-                "schedule tasks using cron jobs - " + now);
-    }
+//    @Scheduled(cron = "0 15 10 15 * ?")
+//    public void scheduleTaskUsingCronExpression() {
+//
+//        long now = System.currentTimeMillis() / 1000;
+//        System.out.println(
+//                "schedule tasks using cron jobs - " + now);
+//    }
 }
