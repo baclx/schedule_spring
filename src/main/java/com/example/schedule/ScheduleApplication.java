@@ -47,7 +47,7 @@ public class ScheduleApplication {
                 "Fixed rate (? delay) task with one second initial delay - " + now);
     }
 
-    // cron
+    // cron // (cron = "0 0/1 * * * ? - , / L W #")
     // executed at 10:15 AM on the 15th day of every month.
 //    @Scheduled(cron = "0 15 10 15 * ?")
 //    public void scheduleTaskUsingCronExpression() {
