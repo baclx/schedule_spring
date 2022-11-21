@@ -5,10 +5,10 @@
 @Configuration
 @EnableScheduling
 @SpringBootApplication
-public class ScheduleApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(ScheduleApplication.class, args);
-	}
+public class ScheduleApplication { 
+    public static void main(String[] args) {
+        SpringApplication.run(ScheduleApplication.class, args);
+    }
 }
 ```
 Ở ví dụ này thì toi config ở hàm Main để spring có thể hiểu đc và khởi tạo cho cta
@@ -20,8 +20,8 @@ public class ScheduleApplication {
 
 ```java
 @Scheduled(fixedDelay = 1000)
-public void scheduleFixedDelayTask() {  
-	System.out.println("Fixed delay task - " + System.currentTimeMillis() / 1000);  
+public void scheduleFixedDelayTask() {
+    System.out.println("Fixed delay task - " + System.currentTimeMillis() / 1000);  
 }
 ```
 
@@ -39,11 +39,9 @@ thêm tham số initialDelay
 ```java
 // initialDelay - Hoãn 5s r mới gọi fixedDelay -> 15s  
 @Scheduled(fixedDelay = 10000, initialDelay = 5000)  
-public void scheduleFixedRateWithInitialDelayTask() {  
-  
-  long now = System.currentTimeMillis() / 1000;  
-    System.out.println(  
-  "Fixed rate (? delay) task with one second initial delay - " + now);  
+public void scheduleFixedRateWithInitialDelayTask() {
+    long now = System.currentTimeMillis() / 1000;
+    System.out.println("Fixed rate (? delay) task with one second initial delay - " + now);  
 }
 ```
 
@@ -64,7 +62,7 @@ Fixed rate (? delay) task with one second initial delay - 1669017512
 // executed at 10:15 AM on the 15th day of every month.  
 @Scheduled(cron = "0 15 10 15 * ?")  
 public void scheduleTaskUsingCronExpression() {
-	long now = System.currentTimeMillis() / 1000;  
+    long now = System.currentTimeMillis() / 1000;
     System.out.println("Schedule tasks using cron jobs - " + now);  
 }
 ```
